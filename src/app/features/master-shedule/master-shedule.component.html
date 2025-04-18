@@ -1,0 +1,142 @@
+<main class="max-w-5xl mx-auto p-4 md:p-6 space-y-6">
+  <section
+    class="flex flex-col sm:flex-row items-center justify-between p-4 bg-white rounded-2xl shadow gap-4 sm:gap-0"
+  >
+    <div class="flex items-center gap-4">
+      <img
+        src="https://i.pravatar.cc/100"
+        alt="Avatar"
+        class="w-14 h-14 rounded-full"
+      />
+      <div>
+        <h2 class="text-lg font-semibold text-gray-800">Алимов У</h2>
+      </div>
+    </div>
+    <button
+      routerLink="/setup"
+      class="border border-gray-300 rounded-xl px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full sm:w-auto text-center"
+    >
+      Редактировать профиль
+    </button>
+  </section>
+
+  <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="bg-white rounded-2xl shadow p-4">
+      <h3 class="text-lg font-semibold text-gray-800 mb-4">Календарь</h3>
+      <div class="mb-4">
+        <input
+        type="datetime-local"
+        [(ngModel)]="selectedDate"
+          class="border border-gray-300 rounded-xl px-4 py-2 w-full text-gray-700"
+        />
+      </div>
+      <ul class="space-y-2">
+        <li
+          *ngFor="let slot of timeSlots"
+          class="flex justify-between items-center text-gray-700 text-sm sm:text-base"
+        >
+          <span>{{ slot.start }} - {{ slot.end }}</span>
+          <span class="truncate max-w-[60%] text-right">{{ slot.label }}</span>
+        </li>
+      </ul>
+      <button
+        (click)="showModal = true"
+        class="mt-4 w-full bg-green-600 text-white rounded-xl py-2 hover:bg-green-700 text-sm sm:text-base"
+      >
+        Забронировать время
+      </button>
+      <app-booking-modal
+        [show]="showModal"
+        title="Забронировать"
+        (close)="showModal = false"
+      >
+        <form>
+          <label class="block mb-2 text-sm">Имя клиента</label>
+          <input
+            type="text"
+            class="w-full mb-4 border border-gray-300 rounded-lg px-3 py-2"
+          />
+
+          <label class="block mb-2 text-sm">Время</label>
+          <input
+          type="datetime-local"
+            class="w-full mb-4 border border-gray-300 rounded-lg px-3 py-2"
+          />
+
+          <label>Выбор услуги</label>
+          <select
+            class="w-full mb-4 border border-gray-300 rounded-lg px-3 py-2"
+          >
+            <option value="service1">Услуга 1</option>
+            <option value="service2">Услуга 2</option>
+            <option value="service3">Услуга 3</option>
+          </select>
+        </form>
+      </app-booking-modal>
+
+      <app-booking-modal
+        [show]="showEditModal"
+        title="Редактировать запись"
+        type="edit"
+        (close)="showEditModal = false"
+        (confirm)="handleEditConfirm()"
+      >
+        <form>
+          <label class="block mb-2 text-sm">Имя клиента</label>
+          <input
+            type="text"
+            class="w-full mb-4 border border-gray-300 rounded-lg px-3 py-2"
+          />
+
+          <label class="block mb-2 text-sm">Время</label>
+          <input
+          type="datetime-local"
+            class="w-full mb-4 border border-gray-300 rounded-lg px-3 py-2"
+          />
+
+          <label>Выбор услуги</label>
+          <select
+            class="w-full mb-4 border border-gray-300 rounded-lg px-3 py-2"
+          >
+            <option value="service1">Услуга 1</option>
+            <option value="service2">Услуга 2</option>
+            <option value="service3">Услуга 3</option>
+          </select>
+        </form>
+      </app-booking-modal>
+
+      <app-booking-modal
+        [show]="showDeleteModal"
+        title="Удалить запись"
+        type="delete"
+        (close)="showDeleteModal = false"
+        (confirm)="handleDeleteConfirm()"
+      >
+      </app-booking-modal>
+    </div>
+
+    <!-- Записи клиентов -->
+    <div class="bg-white rounded-2xl shadow p-4">
+      <h3 class="text-lg font-semibold text-gray-800 mb-4">Записи клиентов</h3>
+      <div class="space-y-3">
+        <div
+          *ngFor="let client of clients"
+          class="flex flex-col sm:flex-row sm:items-center justify-between bg-gray-50 rounded-xl p-3 gap-2"
+        >
+          <div>
+            <div class="font-medium text-sm sm:text-base">
+              {{ client.time }} {{ client.name }}
+            </div>
+            <div class="text-sm text-gray-500">{{ client.service }}</div>
+          </div>
+          <div class="flex gap-2 text-gray-500 justify-end sm:justify-center">
+            <button (click)="openEditModal(client)" class="hover:text-green-600 text-xl sm:text-base">
+              ✏️
+            </button>
+            <button (click)="openDeleteModal(client)" class="hover:text-red-600 text-xl sm:text-base">🗑️</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

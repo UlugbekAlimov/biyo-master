@@ -1,0 +1,37 @@
+<div class="flex min-h-screen flex-col justify-center px-4 py-12 sm:px-6 lg:px-8">
+  <div class="mx-auto w-full max-w-full sm:max-w-md">
+    <img class="mx-auto h-10 w-auto" src="img/logo.png" alt="Your Company">
+    <h2 class="mt-10 text-center text-2xl font-bold tracking-tight text-gray-900">Регистрация мастера</h2>
+  </div>
+
+  <div class="mt-10 mx-auto w-full max-w-full sm:max-w-md px-4">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-6">
+      <div>
+        <label class="block text-sm font-medium text-gray-900">Имя</label>
+        <input type="text" formControlName="firstName" required class="mt-2 block w-full rounded-md bg-white px-4 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-green-600">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-900">Фамилия</label>
+        <input type="text" formControlName="lastName" required class="mt-2 block w-full rounded-md bg-white px-4 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-green-600">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-900">Ник в Telegram или номер телефона</label>
+        <input type="text" formControlName="telegram" required class="mt-2 block w-full rounded-md bg-white px-4 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-green-600">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-900">Пароль</label>
+        <input type="password" formControlName="password" required class="mt-2 block w-full rounded-md bg-white px-4 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-green-600">
+      </div>
+
+      <div>
+        <button routerLink="/setup" type="submit" class="cursor-pointer flex w-full justify-center rounded-md bg-green-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">
+          Создать аккаунт
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+

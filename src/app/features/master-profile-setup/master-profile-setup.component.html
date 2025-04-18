@@ -1,0 +1,165 @@
+<div
+  class="min-h-screen bg-gray-50 flex flex-col justify-center sm:px-6 lg:px-8"
+>
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+      Создание профиля мастера
+    </h2>
+    <p class="mt-2 text-center text-sm text-gray-600">
+      Заполните данные для вашего профессионального профиля
+    </p>
+  </div>
+
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white py-8 px-6 shadow sm:rounded-lg sm:px-10">
+      <form class="space-y-6">
+        <div>
+          <label
+            for="serviceSphere"
+            class="block text-sm font-medium text-gray-700"
+          >
+            Сфера услуг *
+          </label>
+          <select
+            id="serviceSphere"
+            name="serviceSphere"
+            required
+            class="border shadow-sm mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm rounded-md"
+          >
+            <option value="" disabled selected>Выберите вашу сферу</option>
+            <option value="barbershop">Барбершопы</option>
+            <option value="beauty">Женские бьюти услуги</option>
+            <option value="medical">Медицина</option>
+            <option value="football">Футбольные поля</option>
+            <option value="cottage">Дачи</option>
+            <option value="">Кинотеарт</option>
+          </select>
+        </div>
+
+        <div>
+          <label
+            for="companyName"
+            class="block text-sm font-medium text-gray-700"
+          >
+            Название компании (необязательно)
+          </label>
+          <input
+            id="companyName"
+            name="companyName"
+            type="text"
+            class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
+          />
+        </div>
+
+        <div>
+          <label for="address" class="block text-sm font-medium text-gray-700">
+            Адрес *
+          </label>
+          <input
+            id="address"
+            name="address"
+            type="text"
+            required
+            class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700">
+            Фото профиля (необязательно)
+          </label>
+          <div class="mt-1 flex items-center">
+            <span
+              class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100"
+            >
+              <svg
+                class="h-full w-full text-gray-300"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
+                />
+              </svg>
+            </span>
+            <label
+              for="photo-upload"
+              class="ml-5 cursor-pointer bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+            >
+              Загрузить фото
+              <input id="photo-upload" type="file" class="hidden" />
+            </label>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <h3 class="text-lg font-medium text-gray-900">Ваши услуги</h3>
+
+          <div class="space-y-2">
+            <div class="flex items-center space-x-4">
+              <div class="flex-1">
+                <input
+                  type="text"
+                  placeholder="Название услуги"
+                  class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                />
+              </div>
+              <div class="w-24">
+                <input
+                  type="number"
+                  placeholder="Минуты"
+                  min="5"
+                  step="5"
+                  class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                />
+              </div>
+              <button type="button" class="text-red-500 hover:text-red-700">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="-ml-0.5 mr-2 h-4 w-4"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Добавить услугу
+          </button>
+        </div>
+
+        <div>
+          <button
+            routerLink="/shedule"
+            type="submit"
+            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+          >
+            Подтвердить
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
